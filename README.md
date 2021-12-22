@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Network_Diagram](ELK-Stack-Project/Diagrams/Network_Diagram.drawio.svg)
+[Network_Diagram](Diagrams/Network_Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -78,7 +78,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-[docker ps output](main/ELK-Project-Screenshots/docker_ps_output.png)
+[docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -117,17 +117,17 @@ SSH into the control node and follow the steps below:
 
 #### DVWA
 
-1. Copy the [Pentest Playbook](_main/YAMLs/pentest.md_) (ensure that you make a .yml for the playbook) file to `/etc/ansible/`
+1. Copy the [Pentest Playbook](Ansible/pentest.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/`
 2. Update the playbook with the group name from `hosts` (usually webservers).
 3. Run command `ansible-playbook /etc/ansible/pentest.yml`
 
 #### ELK
-1. Copy the [Elk Playbook](_main/YAMLs/install-elk.md_) (ensure that you make a .yml for the playbook) file to `/etc/ansible/`
+1. Copy the [Elk Playbook](Ansible/install-elk.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/`
 2. Update the playbook with the group name from `hosts` (usually ELK).
 3. Run command `ansible-playbook /etc/ansible/install-elk.yml`
 
 #### Filebeat
-1. Copy the [Filebeat Playbook](_main/YAMLs/filebeat-playbook.md_) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
+1. Copy the [Filebeat Playbook](Ansible/filebeat-playbook.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
 2.  run: `curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml`
 3. Update the (_main/YAMLs/filebeat_config.md_) file to include the correct ip addresse for ELK machine (lines 1106 and 1806).
 4. Update the playbook with the group name from `hosts` (usually webserves).
@@ -135,7 +135,7 @@ SSH into the control node and follow the steps below:
 6. Run the playbook, and navigate to `http://<ELK-IP-address>:5601/app/kibana` to check that the installation worked as expected.
 
 #### Metricbeat
-1. Copy the [Metricbeat Playbook](_main/YAMLs/metricbeat-playbook.md_) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
+1. Copy the [Metricbeat Playbook](metricbeat-playbook.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
 2. run: `curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat`
 3.Update the (_main/YAMLs/metricbeat_config.md_) file to include the correct ip addresse for ELK machine (lines 1106 and 1806).
 4. Update the playbook with the group name from `hosts` (usually webserves).
