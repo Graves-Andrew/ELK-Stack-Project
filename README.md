@@ -135,7 +135,7 @@ SSH into the control node and follow the steps below:
 6. Run the playbook, and navigate to `http://<ELK-IP-address>:5601/app/kibana` to check that the installation worked as expected.
 
 #### Metricbeat
-1. Copy the [Metricbeat Playbook](metricbeat-playbook.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
+1. Copy the [Metricbeat Playbook](Ansible/metricbeat-playbook.md) (ensure that you make a .yml for the playbook) file to `/etc/ansible/roles`
 2. run: `curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat`
 3.Update the (_main/YAMLs/metricbeat_config.md_) file to include the correct ip addresse for ELK machine (lines 1106 and 1806).
 4. Update the playbook with the group name from `hosts` (usually webserves).
