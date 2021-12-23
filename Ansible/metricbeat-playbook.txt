@@ -12,7 +12,7 @@
 
   - name: Drop in metricbeat.yml
     copy:
-      src: /etc/ansible/metricbeat-config.yml
+      src: /etc/ansible/metricbeat_config.yml
       dest: /etc/metricbeat/metricbeat.yml
 
   - name: Enable and configure docker module
